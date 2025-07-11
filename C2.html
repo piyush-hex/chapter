@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 2- Functions in C</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+    <div class="sidebar" id="sidebar">
+        <h2>Chapters</h2>
+       <a href="../index.html">Back to Menu</a>
+        <a href="C1.html">Chapter 1 – DATABASE MANAGEMENT SYSTEM</a>
+        <a href="C2.html">Chapter 2 – Functions in C</a>
+        <a href="C3.html">Chapter 3 – To be Continued....</a>
+        <a href="C4.html">Chapter 4 – To be Continued....</a>
+        <a href="C6.html">Chapter 6 – To be Continued....</a>
+        <a href="C7.html">Chapter 7 – To be Continued....</a>
+        <a href="C8.html">Chapter 8 – To be Continued....</a>
+    </div>
+<body>
+  <div class="content" id="content">
+>
+    <h1 id="bold"> Functions in C</h1>
+    <br>
+    <div class="card">
+    <h2 > a.Define Functions</h2>
+    <P><strong>Defn:</strong>A function in C is a set of statements that, when called, perform some specific tasks. 
+    It is the basic building block of a C program that provides modularity and code reusability. 
+    They are also called subroutines or procedures in other languages.</P>
+</div>
+<div class="card">
+<h2>b. Syntax of Functions</h2>
+<p>The basic syntax of a function in C/C++ is:</p>
+<pre>
+return_type function_name(parameters) {
+    // code to execute
+}
+</pre>
+<p>Example:</p>
+<pre>
+void greet() {
+    printf("Hello, world!");
+}
+</pre>
+
+<h2>c. Types of Functions</h2>
+
+<p><strong>1. Library Functions:</strong> These are built-in functions provided by the programming language, such as <code>printf()</code>, <code>sqrt()</code>, <code>strlen()</code>.</p>
+
+<p><strong>2. User-defined Functions:</strong> These are functions that the programmer writes to perform specific tasks.</p>
+
+<pre>
+// User-defined function example
+int add(int a, int b) {
+    return a + b;
+}
+</pre>
+
+<h2>d. Components of a Function</h2>
+
+<h3>i. Function Prototype</h3>
+<p>
+  Declares the function to the compiler before it is used. It includes the return type, function name, and parameters.
+</p>
+<pre>
+int add(int, int); // Function prototype
+</pre>
+
+<h3>ii. Function Call</h3>
+<p>
+  This is where you actually use the function in your code to perform its task.
+</p>
+<pre>
+int result = add(4, 5); // Function call
+</pre>
+
+<h3>iii. Function Definition</h3>
+<p>
+  This is the body of the function — the actual code that runs when the function is called.
+</p>
+<pre>
+int add(int a, int b) {
+    return a + b;
+}
+</pre>
+<h3>iv. Return Type</h3>
+<p>
+  The <strong>return type</strong> tells the program what type of value the function will send back after it finishes running.
+  <br>Common return types include:
+  <ul>
+    <li><code>int</code> – returns an integer</li>
+    <li><code>float</code> – returns a decimal number</li>
+    <li><code>char</code> – returns a character</li>
+    <li><code>void</code> – returns nothing</li>
+  </ul>
+</p>
+
+<p>Example of a function with return type <code>int</code>:</p>
+<pre>
+int square(int num) {
+    return num * num;
+}
+</pre>
+
+<p>Example of a function with <code>void</code> (returns nothing):</p>
+<pre>
+void greet() {
+    printf("Hello, world!");
+}
+</pre>
+</div>
+
+<div class="card">
+  
+<h1>2. Categories of Functions in C</h1>
+
+<h2>i. Function with Return Type but No Arguments</h2>
+<p>This function returns a value, but it does not take any input (arguments).</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int getNumber() {
+    int num = 10;
+    return num;
+}
+
+int main() {
+    int value = getNumber();
+    printf("Returned value is: %d by 923", value);
+    return 0;
+}
+</pre>
+<p><strong>Output:</strong> <br>
+<img src="c1.png" width="80%"></p>
+
+<h2>ii. Function with Return Type and With Arguments</h2>
+<p>This function takes input values and returns a result.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int result = add(5, 7);
+    printf("Sum is: %d by 923", result);
+    return 0;
+}
+</pre>
+<p><strong>Output:</strong> <br>
+<img src="c2.png" width="80%"></p>
+
+<h2>iii. Function with No Return Type and No Arguments</h2>
+<p>This function performs a task but doesn't return anything and doesn't take any input.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+void greet() {
+    printf("Hello! player 923 Welcome to the game.\n");
+}
+
+int main() {
+    greet();
+    return 0;
+}
+</pre>
+<p><strong>Output:</strong> <br>
+<img src="c3.png" width="80%"></p>
+
+<h2>iv. Function with No Return Type but With Arguments</h2>
+<p>This function takes input but does not return anything. It performs an action using the input.</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+void displaySquare(int num) {
+    printf("Square of %d is: %d\n by 923", num, num * num);
+}
+
+int main() {
+    displaySquare(6);
+    return 0;
+}
+</pre>
+<p><strong>Output:</strong> <br>
+<img src="c4.png" width="80%"></p>
+</div>
+
+<div class="card">
+  <h1>3. Storage Classes in C</h1>
+
+<h2>i. Automatic (auto)</h2>
+<p>
+  <strong>Automatic</strong> variables are local to the function in which they are defined. This is the default
+   behavior for local variables, so writing <code>auto</code> is optional.
+</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+void demo() {
+    auto int x = 5; 
+    printf("Auto variable x = %d\n", x);
+}
+
+int main() {
+    demo();
+    return 0;
+}
+</pre>
+<p><strong>Output:</strong><br>
+<img src="c5.png" width="80%" </p>
+
+<h2>ii. External (extern)</h2>
+<p>
+  <strong>Extern</strong> tells the compiler that the variable exists somewhere else (outside the file or before main). It allows sharing variables across multiple files.
+</p>
+<pre>
+// File 1
+#include &lt;stdio.h&gt;
+
+int num = 20; // global variable
+
+//File 2
+extern int num;
+
+int main() {
+    printf("Extern variable num = %d\n", num);
+    return 0;
+}
+</pre>
+<p><strong>Output:</strong> 
+  <br>
+<img src="c6.png" width="80%"> </p>
+<h2>iii. Register</h2>
+<p>
+  <strong>Register</strong> variables are stored in CPU registers instead of RAM for faster access. You cannot get their memory address using <code>&</code> operator.
+</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int main() {
+    register int count = 10;
+    printf("Register variable count = %d\n", count);
+    return 0;
+}
+</pre>
+<p><strong>Output:</strong> <br>
+<img src="c7.png" width="80%"></p>
+
+<h2>iv. Static</h2>
+<p>
+  <strong>Static</strong> variables retain their value between function calls. They're initialized only once and preserve their last value.
+</p>
+<pre>
+#include &lt;stdio.h&gt;
+
+void counter() {
+    static int count = 0;
+    count++;
+    printf("Count = %d\n", count);
+}
+
+int main() {
+    counter();
+    counter();
+    counter();
+    return 0;
+}
+</pre>
+<p><strong>Output:</strong><br>
+<img src="c4.png" width="80%">
+</p>
+</div>
+
+<div class="card">
+
+
+<h1>4. Recursive Function</h2>
+
+<p>
+  A <strong>recursive function</strong> is a function that calls itself to solve smaller instances of a problem.<br>
+  It must have a <strong>base case</strong> to stop the recursion and prevent infinite loops.
+</p>
+
+<p><strong>Syntax:</strong></p>
+<pre>
+return_type function_name(parameters) {
+    if (base_condition)
+        return result;
+    else
+        return function_name(smaller_input);
+}
+</pre>
+
+<p><strong>Example: Factorial using recursion</strong></p>
+<pre>
+#include &lt;stdio.h&gt;
+
+int factorial(int n) {
+    if (n == 0)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+
+int main() {
+    int result = factorial(5);
+    printf("Factorial of 5 is: %d", result);
+    return 0;
+}
+</pre>
+
+<p><strong>Output:</strong> <br>
+<img src="c9.png" width="80%"></p>
+
+<hr>
+</h1></div>
+<div class="card">
+<h1>5. Passing Arrays to a Function</h1>
+
+<p>
+  You can pass an array to a function in C by passing the array name, which is treated as a pointer to the first element.<br>
+  The function can then loop over the array elements using a loop and the size.
+</p>
+
+<p><strong>Syntax:</strong></p>
+<pre>
+void function_name(int arr[], int size) {
+    
+}
+</pre>
+
+<p><strong>Example: Print all elements of an array</strong></p>
+<pre>
+#include &lt;stdio.h&gt;
+
+void printArray(int arr[], int size) {
+  int i;
+    for (i = 0; i &lt; size; i++) {
+        printf("%d ", arr[i]);
+    }
+}
+
+int main() {
+    int nums[] = {1, 2, 3, 4, 5};
+    printArray(nums, 5);
+    printf("by 923");
+    return 0;
+}
+</pre>
+
+<p><strong>Output:</strong> 
+  <br>
+<img src="c10.png" width="80%">
+</p>
+
+</div>
+
+ <div class="card">
+    <h1 id="bold">Past Year Questions of Functions (2020-2024 and Model Questions)</h1>
+ 
+  </div>
+
+</div>
+    </body>
+    </html>
